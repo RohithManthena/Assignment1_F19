@@ -47,18 +47,25 @@ namespace Assignment1_F19
                 // Running a for loop to input all the numbers between x and y into the logic below
                 for (int i = x; i <= y; i++)
                 {
-                    // used a boolean fun to set a variable as true which we will be using to check if a number is self dividing or not
+                    // used a boolean function to set a variable as true which we will be using to check if a number is self dividing or not
                    var selfdividing=true;
-                   for (int j = i; j > 0; j /= 10)
+                    int j = i;
+                    //Iterating the while loop while j>0
+                    while (j > 0)
                    {
-                        //
+                        // initializing the variable a with j modulo 10 so that we can get the different digits in the number
                             int a = j % 10;
+                        // using if condition, checking if the number i is divisible by a(which is a digit of the number i)  
                             if (a == 0 || i % a != 0)
                             {
                                 selfdividing = false;
                                 break;
                             }
+                            // Dividing j by 10 so that when the while loop runs the next iteration we can check the above if condition for other digits of the number i
+                            
+                        j = j / 10;
                    }
+                    // checking and then printing the number if it is self dividing
                    if(selfdividing==true)
                     {
                         Console.Write("{0},",i);
